@@ -29,7 +29,7 @@ client.query('SELECT table_schema,table_name FROM information_schema.tables;', (
 app.get("/display", function(req,res){
 	console.log("display request");
 	var shine_score = "5";
-	
+	getSS();
 	
 	var floor = "Austin";
 	
@@ -46,8 +46,24 @@ app.get("/test", function(req,res){
 app.get("/dump", function(req,res){
 		console.log("dump request");
 		getDump();
-		res.write("dump will be here");
+		res.render("dump");
 });
+
+function getSS() {
+	var client = new Client({ connectionString: process.env.DATABASE_URL, ssl: true,});
+	client.connect();
+	client.query('SELECT * FROM floors WHERE loaction ="Austin";', (err, res) => {
+		if (err){ 
+			throw (err);
+		}
+		for (let row of res.rows) {
+			console.log(JSON.stringify(row));
+		}
+		client.end();
+		});
+	
+}
+
 
 function getDump() {
 	var client = new Client({ connectionString: process.env.DATABASE_URL, ssl: true,});
