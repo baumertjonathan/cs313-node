@@ -28,17 +28,15 @@ client.query('SELECT table_schema,table_name FROM information_schema.tables;', (
 
 app.get("/display", function(req,res){
 	console.log("display request");
-	
-	client.query('SELECT * FROM floors;', (err, res) => {
+	var shine_score = "5";
+	client.query('SELECT shine_score FROM floors WHERE location='AUSTIN';', (err, res) => {
 	if (err){ throw (err);}
-	for (let row of res.rows){
-		console.log(JSON.stringify(row));
-	}
+		shine_score = res;
 	client.end();
 	});
 	
 	var floor = "Austin";
-	var shine_score = "5";
+	
 	var params = {floor: floor, sr: shine_score};
 	res.render("display", params);
 	
