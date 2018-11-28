@@ -23,8 +23,8 @@ client.query('SELECT table_schema,table_name FROM information_schema.tables;', (
 //database connected
 
 app.use(express.static("public"));
-app.set("views", "views");
-app.set("view engine", "ejs");
+//app.set("views", "views");
+//app.set("view engine", "ejs");
 
 /*
 app.get("/", function(req, res) {
