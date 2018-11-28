@@ -38,16 +38,31 @@ app.get("/display", function(req,res){
 	
 });
 
+app.get("/test", function(req,res){
+	console.log("TESTING");
+	res.write("this is a test");
+});
+
 app.get("/dump", function(req,res){
-	/*
-	client.query('SELECT * FROM floors;', function(err, rows){
-			if(err) {console.log(err);}
-			
-			rows.forEach(function(result){
-				console.log(result);
-			}
-	*/
-})
+		console.log("dump request");
+		getDump();
+		res.write("dump will be here");
+});
+
+function getDump() {
+	var client = new Client({ connectionString: process.env.DATABASE_URL, ssl: true,});
+	client.connect();
+	client.query('SELECT * FROM floors;', (err, res) => {
+		if (err){ 
+			throw (err);
+		}
+		for (let row of res.rows) {
+			console.log(JSON.stringify(row));
+		}
+		client.end();
+		});
+	
+}
 
 
 app.listen(process.env.PORT || 3000, ()=>console.log("request made"));
