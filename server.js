@@ -52,15 +52,7 @@ app.get("/dump", function(req,res){
 function getSS() {
 	var client = new Client({ connectionString: process.env.DATABASE_URL, ssl: true,});
 	client.connect();
-	client.query("SELECT * FROM floors WHERE loaction ='Austin';", (err, res) => {
-		if (err){ 
-			throw (err);
-		}
-		for (let row of res.rows) {
-			console.log(JSON.stringify(row));
-		}
-		client.end();
-		});
+	
 	
 }
 
