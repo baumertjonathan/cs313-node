@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const SqlToJson = require('sql-to-json');
 app.use(express.static('public'));
 app.set("views", "views");
 app.set("view engine", "ejs");
@@ -39,7 +39,12 @@ app.get("/display", function(req,res){
 });
 
 app.get("/dump", function(req,res){
-	
+	client.query('SELECT * FROM floors;', function(err, rows){
+			if(err) {console.log(err);}
+			
+			rows.forEach(function(result){
+				res.write(result);
+			}
 	
 })
 
