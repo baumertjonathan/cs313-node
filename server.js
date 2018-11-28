@@ -16,12 +16,24 @@ const client = new Client({
 client.connect();
 
 client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
-  if (err) throw err;
+  if (err){ 
+	throw (err);
+  }
   for (let row of res.rows) {
     console.log(JSON.stringify(row));
   }
   client.end();
 });
 //database connection done
+
+app.get("/display", function(req,res){
+	console.log("display request");
+	var floor = "Austin";
+	var shine_score = "5";
+	var params = {floor: floor, sr: shine_score};
+	res.render("display", params);
+	
+});
+
 
 app.listen(process.env.PORT || 3000, ()=>console.log("request made"));
