@@ -43,7 +43,7 @@ app.get("/dump", function(req,res){
 			if(err) {console.log(err);}
 			
 			rows.forEach(function(result){
-				res.write(result);
+				console.log(result);
 			}
 	
 })
