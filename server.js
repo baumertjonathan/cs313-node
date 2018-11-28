@@ -2,7 +2,7 @@ var express = require("express");
 var app = express();
 var port = 3000;
 //connecting to database
-/*
+
 const { Client } = require('pg');
 
 const client = new Client({
@@ -19,14 +19,13 @@ client.query('SELECT table_schema,table_name FROM information_schema.tables;', (
   }
   client.end();
 });
-*/
 //database connected
 
 app.use(express.static("public"));
-//app.set("views", "views");
-//app.set("view engine", "ejs");
+app.set("views", "views");
+app.set("view engine", "ejs");
 
-/*
+
 app.get("/", function(req, res) {
 	console.log("Received a request for /");
 
@@ -52,6 +51,4 @@ app.get("/aTest", function(req, res) {
 });
 
 
-
-*/
 app.listen(port, () => console.log("example app listening on port 3000!"))
