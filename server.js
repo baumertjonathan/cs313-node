@@ -39,11 +39,7 @@ app.get("/display", function(req,res){
 });
 
 app.get("/dump", function(req,res){
-	client.query('SELECT shine_score FROM floors WHERE location='AUSTIN';', (err, res) => {
-	if (err){ throw (err);}
-		
-	client.end();
-	});
+	
 	
 })
 
