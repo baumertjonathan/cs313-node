@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const SqlToJson = require('sql-to-json');
+
 app.use(express.static('public'));
 app.set("views", "views");
 app.set("view engine", "ejs");
