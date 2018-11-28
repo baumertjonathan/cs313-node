@@ -29,11 +29,7 @@ client.query('SELECT table_schema,table_name FROM information_schema.tables;', (
 app.get("/display", function(req,res){
 	console.log("display request");
 	var shine_score = "5";
-	client.query('SELECT shine_score FROM floors WHERE location='AUSTIN';', (err, res) => {
-	if (err){ throw (err);}
-		shine_score = res;
-	client.end();
-	});
+	
 	
 	var floor = "Austin";
 	
@@ -41,6 +37,15 @@ app.get("/display", function(req,res){
 	res.render("display", params);
 	
 });
+
+app.get("/dump", function(req,res){
+	client.query('SELECT shine_score FROM floors WHERE location='AUSTIN';', (err, res) => {
+	if (err){ throw (err);}
+		
+	client.end();
+	});
+	
+})
 
 
 app.listen(process.env.PORT || 3000, ()=>console.log("request made"));
