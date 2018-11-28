@@ -39,13 +39,14 @@ app.get("/display", function(req,res){
 });
 
 app.get("/dump", function(req,res){
+	/*
 	client.query('SELECT * FROM floors;', function(err, rows){
 			if(err) {console.log(err);}
 			
 			rows.forEach(function(result){
 				console.log(result);
 			}
-	
+	*/
 })
 
 
