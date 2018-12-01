@@ -24,7 +24,10 @@ client.query('SELECT table_schema,table_name FROM information_schema.tables;', (
   }
   client.end();
 });
+
 //database connection done
+
+
 
 app.get("/display", function(req,res){
 	console.log("display request");
@@ -47,30 +50,21 @@ app.get("/dump", function(req,res){
 		console.log("dump request");
 		getDump();
 		res.render("dump");
-});
-
-function getSS() {
-	var client = new Client({ connectionString: process.env.DATABASE_URL, ssl: true,});
-	client.connect();
-	
-	
-}
-
-
-function getDump() {
-	var client = new Client({ connectionString: process.env.DATABASE_URL, ssl: true,});
-	client.connect();
-	client.query('SELECT * FROM floors;', (err, res) => {
+		client.query('SELECT * FROM floors;', (err, res) => {
 		if (err){ 
 			throw (err);
 		}
 		for (let row of res.rows) {
-			console.log(JSON.stringify(row));
+			res.send(JSON.stringify(rows));
 		}
 		client.end();
-		});
-	
-}
+});
+
+
+
+
+
 
 
 app.listen(process.env.PORT || 3000, ()=>console.log("request made"));
+
