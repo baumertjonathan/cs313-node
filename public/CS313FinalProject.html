@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>final Project</title>
+	<script src="floors-clientside.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+  	<h1>Submission</h1>
+		<div>
+		Floor:
+		<select name="floors">
+			<option value="hart">Hart</option>
+			<option value="clarke">Clarke</option> 
+			<option value="romney">Romney</option> 
+			<option value="austin">Austin</option> 
+			<option value="benson">Benson</option> 
+			<option value="mc">MC</option>  
+		</select>
+		
+		Shine score:	
+		<select name="shineScore">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select>
+		Scuff score:
+		<select name="scuffScore">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select>
+		Dirt score:
+		<select name="dirtScore">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select>
+		Tile score:
+		<select name="tileScore">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select>
+		
+		<input type="button" onclick="submitRating()" value="submitRating">
+		</div>
+		
+		<div>
+			<h2>Display</h2>
+				<select name="floorSearch" id="floorSearch">
+					<option value="hart">Hart</option>
+					<option value="clarke">Clarke</option> 
+					<option value="romney">Romney</option> 
+					<option value="austin">Austin</option> 
+					<option value="benson">Benson</option> 
+					<option value="mc">MC</option>  
+				</select>
+				<input type="button" onclick="searchByFloor()" value="search">
+		</div>
+		
+		<div>
+			<h2>Results</h2>
+			<ul id="ulFloors">
+			
+			</ul>
+		</div>
+  </body>
+</html>
