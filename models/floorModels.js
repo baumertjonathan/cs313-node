@@ -17,11 +17,12 @@ function getAllFloors(){
 	return test;
 };
 
-function getFloorByName(floor){
+function getFloorByName(floor, callback){
 	
-	var sql = "SELECT * FROM floors";
+	var sql = "SELECT * FROM floors WHERE location=$1::text";
+	var params = [floor];
 	
-	pool.query(sql, function(err, db_results) {
+	pool.query(sql, params, function(err, db_results) {
 
 		if (err) {
 			throw err;
@@ -31,11 +32,11 @@ function getFloorByName(floor){
 			 console.log(db_results);
 
 			var results = {
-					success:true,
+					//success:true,
 					list:db_results.rows
 				};
 				
-				return results;
+				callback(null, results);
 						
 		}
 

@@ -8,8 +8,9 @@ function getFloorList(req, res){
 
 function getFloorByName(req, res){
 	var floor = req.query.floor;
-	var result = floorModels.getFloorByName(floor);
+	floorModels.getFloorByName(floor, function(error, result){
 	res.json(result);
+	});
 };
 
 function getSubmissionRating(){

@@ -13,7 +13,7 @@ function searchByFloor(){
 		
 		for(var i = 0; i < data.list.length; i++){
 		var filler = data.list[i];
-		$("#ulFloors").append("<li>" + filler.floor + ": shine score: " + filler.shineScore + ", scuff score: " + filler.scuffScore + "<li>")
+		$("#ulFloors").append("<li>" + filler.location + ": shine score: " + filler.shine_score + ", scuff score: " + filler.scuff_score + ", dirt score: " + filler.dirt_score + ", tile score: " + filler.tile_score +"<li>")
 		}
 	})
 	
