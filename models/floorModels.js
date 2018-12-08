@@ -1,25 +1,8 @@
-//database connection start
-/*
-const { Client } = require('pg');
+const {Pool} = require("pg");
+const db_url = process.env.DATABASE_URL;
+const  pool = new Pool({connectionString: db_url});
 
-const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true,
-});
 
-client.connect();
-
-client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
-  if (err){ 
-	throw (err);
-  }
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
-  }
-  client.end();
-});
-*/
-//database connection done
 
 function getAllFloors(){
 	var test = {
@@ -33,6 +16,19 @@ function getAllFloors(){
 };
 
 function getFloorByName(floor){
+	
+	var sql = "SELECT * FROM floors;";
+	
+	pool.query(sql, function(err, dbResults){
+		if(err){
+			throw err;
+		}else{
+			console.log("Back from the DB with: ");
+			console.log("cbResults");
+		}
+		
+	});
+	
 	var result = {
 		list: [
 		{floor:floor, shineScore:5, scuffScore:5},
