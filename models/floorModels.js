@@ -19,22 +19,20 @@ function getFloorByName(floor){
 	
 	var sql = "SELECT * FROM floors;";
 	
-	pool.query(sql, function(err, dbResults){
+	pool.query(sql, function(err, db_results){
 		if(err){
 			throw err;
 		}else{
 			console.log("Back from the DB with: ");
-			console.log("cbResults");
+			console.log(db_results);
 		}
 		
 	});
 	
 	var result = {
-		list: [
-		{floor:floor, shineScore:5, scuffScore:5},
-		{floor:floor, shineScore:5, scuffScore:5},
-		{floor:floor, shineScore:5, scuffScore:5}
-	]}
+		list:db_results.rows
+		};
+		
 	return result;
 };
 
