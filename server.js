@@ -19,8 +19,8 @@ app.use(express.json());
 app.get("/dump", floorController.getFloorList);
 app.get("/display", floorController.getFloorByName);
 app.get("/test", floorController.doTest);
-//app.get("/submission",  floorController.getSubmissionRating);
-//app.post("/subission", floorController.submitRating);
+//app.get("/submit",  floorController.getSubmissionRating);
+//app.post("/submit", floorController.submitRating);
 
 
 app.listen(PORT, function(){

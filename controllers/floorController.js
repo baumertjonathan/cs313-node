@@ -24,11 +24,14 @@ function doTest(req, res){
 };
 
 function submitRating(req,res){
-	var name= req.body.name;
-	var shinescore = 5;
-	var scuffscore = 5;
-	var results= floorModels.submitRating(name, shineScore, scuffScore);
-	res.json(results);
+	var floor = req.query.floor;
+	var shinescore = req.query.shineScore; 
+	var scuffscore = req.query.scuffScore;
+	var dirtScore = req.query.dirtScore;
+	var tileScore = req.query.tileScore;
+	floorModel.submitRating(floor, shineScore, scuffScore, dirtScore, tileScore, function(req,res){;
+		res.json(results);
+	});
 };
 
 module.exports = {

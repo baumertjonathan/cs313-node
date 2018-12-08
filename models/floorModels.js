@@ -49,9 +49,20 @@ function getIsATest(){
 	return isATest;
 };
 
-function submitRating(floor, shineScore, scuffScore){
-	//submit information with provided info. 
-	return {result:true};
+function submitRating(floor, shineScore, scuffScore, dirtScore, tileScore, callback){
+	var sql = "INSERT INTO floors (location, shine_score, scuff_score, dirt_score, tile_score) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text)";
+	var params = [floor, shineScore, scuffScore, dirtScore, tileScore];
+	pool.query(sql, params, function(err, dbResult){
+		if(err){
+			throw err;
+		}else{
+			console.log("inserted record for: ")
+			console.log(floor);
+			callback(null, dbResult);
+		}
+	});
+	
+	
 };
 
 

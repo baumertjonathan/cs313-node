@@ -1,6 +1,15 @@
 function submitRating(){
-	
-	
+	var floor = $("#floors").val();
+	var shineScore = $("#shineScore").val();
+	var scuffScore = $("#scuffScore").val();
+	var dirtScore = $("#dirtScore").val();
+	var tileScore = $("#tileScore").val();
+	console.log("submission button has been pressed");
+	//this part is not currently working, but will hopefully be implimented in the future.
+	//$.get("/submit", {floor:floor, shineScore:shineScore, scuffScore:scuffScore, dirtScore:dirtScore, tileScore:tileScore}, function(data) {
+	//	console.log("submitting to the server");
+		
+	//})
 }
 
 function searchByFloor(){
