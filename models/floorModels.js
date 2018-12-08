@@ -1,5 +1,7 @@
-const {Pool} = require("pg");
+const { Pool } = require("pg");
 const db_url = process.env.DATABASE_URL;
+
+ console.log("DB URL: " + db_url);
 const  pool = new Pool({connectionString: db_url});
 
 
@@ -17,23 +19,28 @@ function getAllFloors(){
 
 function getFloorByName(floor){
 	
-	var sql = "SELECT * FROM floors;";
+	var sql = "SELECT * FROM floors";
 	
-	pool.query(sql, function(err, db_results){
-		if(err){
+	pool.query(sql, function(err, db_results) {
+
+		if (err) {
 			throw err;
-		}else{
-			console.log("Back from the DB with: ");
-			console.log(db_results);
+		} else {
+			// We got some successful results from the DB
+			 console.log("Back from the DB with: ")
+			 console.log(db_results);
+
+			var results = {
+					success:true,
+					list:db_results.rows
+				};
+				
+				return results;
+						
 		}
-		
+
 	});
-	
-	var result = {
-		list:db_results.rows
-		};
 		
-	return result;
 };
 
 function getIsATest(){

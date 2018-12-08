@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+require('dotenv').config();
+
 const PORT = process.env.PORT||3000;
 const floorController = require("./controllers/floorController.js");
 const floorModels = require("./models/floorModels.js");
-require('dotenv').config();
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended:true}));
