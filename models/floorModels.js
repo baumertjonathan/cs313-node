@@ -1,7 +1,7 @@
 const { Pool } = require("pg");
 const db_url = process.env.DATABASE_URL;
 
- console.log("DB URL: " + db_url);
+// console.log("DB URL: " + db_url);
 const  pool = new Pool({connectionString: db_url});
 
 
@@ -28,8 +28,8 @@ function getFloorByName(floor, callback){
 			throw err;
 		} else {
 			// We got some successful results from the DB
-			 console.log("Back from the DB with: ")
-			 console.log(db_results);
+			 //console.log("Back from the DB with: ")
+			 //console.log(db_results);
 
 			var results = {
 					//success:true,
@@ -50,14 +50,14 @@ function getIsATest(){
 };
 
 function submitRating(floor, shineScore, scuffScore, dirtScore, tileScore, callback){
-	var sql = "INSERT INTO floors (location, shine_score, scuff_score, dirt_score, tile_score) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text)";
+	var sql = "INSERT INTO floors (location, shine_score, scuff_score, dirt_score, tile_score) VALUES ($1::text, $2::text, $3::text, $4::text, $5::text);"
 	var params = [floor, shineScore, scuffScore, dirtScore, tileScore];
 	pool.query(sql, params, function(err, dbResult){
 		if(err){
 			throw err;
 		}else{
-			console.log("inserted record for: ")
-			console.log(floor);
+			//console.log("inserted record for: ")
+			//console.log(floor + " " + shineScore + " " + scuffScore + " " + dirtScore + " " + tileScore);
 			callback(null, dbResult);
 		}
 	});

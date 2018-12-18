@@ -10,7 +10,7 @@
   	<h1>Submission</h1>
 		<div>
 		Floor:
-		<select name="floors">
+		<select name="floors", id="floorSubmit">
 			<option value="Hart">Hart</option>
 			<option value="Clarke">Clarke</option> 
 			<option value="Romney">Romney</option> 
@@ -20,7 +20,7 @@
 		</select>
 		
 		Shine score:	
-		<select name="shineScore">
+		<select name="shineScore", id="shineScore">
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
@@ -33,7 +33,7 @@
 			<option value="10">10</option>
 		</select>
 		Scuff score:
-		<select name="scuffScore">
+		<select name="scuffScore", id="scuffScore">
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
@@ -46,7 +46,7 @@
 			<option value="10">10</option>
 		</select>
 		Dirt score:
-		<select name="dirtScore">
+		<select name="dirtScore", id="dirtScore">
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
@@ -59,7 +59,7 @@
 			<option value="10">10</option>
 		</select>
 		Tile score:
-		<select name="tileScore">
+		<select name="tileScore", id="tileScore">
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
@@ -72,7 +72,7 @@
 			<option value="10">10</option>
 		</select>
 		
-		<input type="button" onclick="submitRating()" value="submitRating">
+		<input type="button" onclick="submitRating()" value="submit">
 		</div>
 		
 		<div>
@@ -85,7 +85,8 @@
 					<option value="Benson">Benson</option> 
 					<option value="MC">MC</option>  
 				</select>
-				<input type="button" onclick="searchByFloor()" value="search">
+				<input type="button" onclick="searchByFloor()" value="search ratings">
+				<input type="button" onclick="findAverage()" value="search averages">
 		</div>
 		
 		<div>

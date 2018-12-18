@@ -25,12 +25,14 @@ function doTest(req, res){
 
 function submitRating(req,res){
 	var floor = req.query.floor;
-	var shinescore = req.query.shineScore; 
-	var scuffscore = req.query.scuffScore;
+	var shineScore = req.query.shineScore; 
+	var scuffScore = req.query.scuffScore;
 	var dirtScore = req.query.dirtScore;
 	var tileScore = req.query.tileScore;
-	floorModel.submitRating(floor, shineScore, scuffScore, dirtScore, tileScore, function(req,res){;
-		res.json(results);
+	
+	console.log("Controller receives: " + floor + " " + shineScore  + " " + scuffScore  + " " + dirtScore  + " " + tileScore);
+	floorModels.submitRating(floor, shineScore, scuffScore, dirtScore, tileScore, function(req,res){;
+		//res.json(results);
 	});
 };
 

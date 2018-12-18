@@ -19,7 +19,7 @@ app.use(express.json());
 app.get("/dump", floorController.getFloorList);
 app.get("/display", floorController.getFloorByName);
 app.get("/test", floorController.doTest);
-//app.get("/submit",  floorController.getSubmissionRating);
+app.get("/submit",  floorController.submitRating);
 //app.post("/submit", floorController.submitRating);
 
 
